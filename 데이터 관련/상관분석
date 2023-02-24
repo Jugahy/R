@@ -1,0 +1,41 @@
+# 결측값 확인
+colSums(is.na(df))
+
+
+
+
+# 상관분석 값
+cor(변수명, 변수명)
+
+
+
+
+# na가 연산에 포함되는 순간 그 결과값은 무조건 na인 문제 해결
+
+cor(df[,], use="complete.obs")  # 결측치가 존재하는 데이터 row 벡터를 삭제
+cor(df[,], use="pairwise.complete.obs")  # 결측치가 존재하는 위치에서의 연산만 넘어감
+
+
+
+
+# 공분산
+
+cov(변수명, 변수명)
+
+
+
+
+# 상관계수의 검정
+
+cor.test(변수명, 변수명)
+
+
+
+
+# 상관관계 시각화
+
+install.packages("corrplot", repos = "http://cran.us.r-project.org")  # repos는 html로 저장할 떄 적어줘야함
+library(corrplot
+
+x <- cor(df[,])
+corrplot(x)
