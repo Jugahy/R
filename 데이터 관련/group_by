@@ -1,0 +1,29 @@
+# %>% 파이프 연산자 사용하기 위한 설치
+
+install.packages("magrittr")
+library(magrittr)
+
+install.packages("dplyr")
+library(dplyr)
+
+
+
+
+# 집단별로 요약
+df %>% summarise(mean_math = mean(변수명))  # 변수명의 평균 구함
+
+df %>% 
+  group_by(변수명1) %>%
+  summarise(mean_math = mean(변수명2))  # 변수명1에 대한 변수명2의 평균
+  
+ 
+ 
+ 
+
+# 여러 요약 한번에 
+df %>% 
+  group_by(변수명1) %>%
+  summarise(mean_math = mean(변수명2),
+            sum_math = sum(변수명2),
+            median_math = median(변수명2),
+            n = n())
