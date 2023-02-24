@@ -1,0 +1,53 @@
+# dataframe 생성
+
+a <- c(1,2,3,4)
+b <- c("a","b","c","d")
+df <- data.frame(a,b)
+
+
+
+
+# dataframe 변수 추가
+
+df <- c(TRUE, FALSE, FALSE, TRUE)             # 마지막 열에 생성
+df <- transform(df, 이름 = c(값, 값, 값, 값))  # 마지막 열에 생성, 여러 변수 한번에 생성
+
+
+
+
+# dataframe 인덱싱
+
+df[[1]]      # 1번열의 값만 추출
+df$a         # 열 이름을 사용하여 호출 열의 값만 추출
+df[1:2,]     # 행은 1행~2행, 열은 전체
+df[df$a>2,]  # a열의 값이 2보다 큰 행만 불러옴
+
+
+
+
+ # 모든 변수명 확인
+names(df) 
+
+
+
+
+# dataframe 변수명 변경
+
+install.packages("reshape")
+library(reshape)
+df <- renames(df,
+              c(a = "숫자",
+                b = "문자",))
+
+
+
+
+
+
+
+
+
+
+
+
+
