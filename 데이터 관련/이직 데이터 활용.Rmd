@@ -1,0 +1,67 @@
+---
+title: "이직 설문조사"
+author: "jugahy"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, message=FALSE, warning=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+# 이직의도와 각 변수간 이차함수 그래프
+### 문제
+* x축 이직의도 외 기타 변수
+* y축 이직의도
+
+### 방법
+* 기타 변수의 각 점수에 있는 행들의 이직의도의 평균을 y값으로 해줌
+
+### 그 외
+* 소수자리 까지 있는 x값은 기준을 어떻게 나누는지에 따라 결과값을 원하는대로 조정 가능
+
+# 데이터 불러오기
+
+#####excel 파일을 불러오기 위해서 **readxl** 라이브러리 설치
+
+```{r cars, echo=TRUE, include=FALSE}
+install.packages("readxl", repos = "http://cran.us.r-project.org" )
+library(readxl)
+```
+
+#####이직 데이터 호출
+
+```{r pressure}
+df <- read_excel("~/Rstudy/DATA.xlsx")
+df
+```
+
+
+#####group_by를 사용하기 위해서 파이프 연산자(%>%) install
+```{r, message=FALSE, warning=FALSE}
+install.packages("magrittr", repos = "http://cran.us.r-project.org")
+install.packages("dplyr", repos = "http://cran.us.r-project.org")
+
+
+library(magrittr)
+library(dplyr)
+```
+
+
+
+##### group_by를 사용하여 이직의도에 따른 직무스트레스의 평균을 구해보겠습니다.
+```{r}
+a <- df %>%
+    group_by(직무스트레스) %>%
+    summarise(이직의도 = mean(이직의도))
+```
+
+
+##### 그렇게 구한 평균을 bar로 그려보겠습니다.
+```{r}
+barplot(이직의도~직무스트레스,a)
+```
+
+
+
+# 결과
+* 직무스트레스가 증가할수록 이직의도가 높아지는 꼴인 것을 알 수 있다.
