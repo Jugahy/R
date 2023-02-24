@@ -1,0 +1,43 @@
+# HyperParameter
+  - header : 데이터의 1행이 변수명인지 아닌지 판단
+  - skip : 특정 행까지 제외하고 데이터 불러옴
+  - nrows : 특정 행까지 데이터 불러옴
+  - sep : 구분 문자 지정
+
+
+
+
+# TXT file
+df <- read.table("데이터 주소", header = False, skip = 0, nrow = -1, sep = " ")
+View(df)
+
+
+
+
+# CSV file
+df <- read.csv("데이터 주소", header = False, skip = 0, nrow = -1, sep = " ")
+View(df)
+
+
+
+
+# EXCEL file
+
+# readxl 패키지 설치 및 로드하기
+install.package("readxl")
+library(readxl)
+
+df <- read_excel("데이터 주소", header = False, skip = 0, nrow = -1, sep = " ", sheet = 2)
+View(df)
+
+
+
+
+# XML file
+
+# XML 패키지 설치 및 로드하기
+install.packages("XML")
+library(XML)
+
+df<- xmlToDataFrame("데이터 주소", header = False, skip = 0, nrow = -1, sep = " ")
+View(df)
