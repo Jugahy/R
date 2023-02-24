@@ -1,0 +1,37 @@
+# while
+
+i <- 0
+while(i<10){
+  i <- i+1}
+  
+
+
+
+# for
+
+sum <- 0
+for(i in c(1,2,3)){
+  sum <- sum+i}
+
+
+sum <- 0
+for(i in 5:15){
+  if(i%%2 == 0){
+    next;}
+  if(i%%10 == 0){
+    break;}
+  sum <- sum+i
+}
+print(sum)
+
+
+
+
+# repeat
+
+repeat{
+  result = 2 * i
+  print(result)
+  if(i >= 9) break
+  i = i+1
+}
