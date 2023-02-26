@@ -1,0 +1,4 @@
+# markdown 형식으로 저장하려할 때 install 시켜주는 것이 있다면 install의 매개변수 중 하나인 repos를 넣어주어야 함
+
+install.packages("corrgram", repos = "http://cran.us.r-project.org")
+library(corrgram)
